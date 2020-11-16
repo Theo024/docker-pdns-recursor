@@ -20,6 +20,7 @@ FROM alpine:latest
 COPY --from=builder /build /
 
 RUN apk add --no-cache \
+        libstdc++ \
         boost-context \
         boost-filesystem \
         lua \
