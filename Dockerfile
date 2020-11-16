@@ -27,7 +27,9 @@ RUN apk add --no-cache \
         openssl \
     && \
     addgroup -g 500 -S pdns-recursor && \
-    adduser -u 500 -D -H -S -g pdns-recursor -s /sbin/nologin -G pdns-recursor pdns-recursor
+    adduser -u 500 -D -H -S -g pdns-recursor -s /sbin/nologin -G pdns-recursor pdns-recursor && \
+    mkdir /var/run/pdns-recursor && \
+    chown -R pdns-recursor:pdns-recursor /var/run/pdns-recursor
 
 USER pdns-recursor
 
